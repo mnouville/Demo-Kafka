@@ -22,3 +22,5 @@ CREATE TABLE COMPTE (
 INSERT INTO CLIENT(id, nom, prenom, email, phonenumber) VALUES (1, "Maxime", "Nouville", "mnouville@excilys.com", "0000000000");
 
 INSERT INTO COMPTE(id, idclient, solde) VALUES (1, 1, 150000.0);
+
+select * from client;
