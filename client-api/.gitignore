@@ -30,7 +30,7 @@ build/
 ### VS Code ###
 .vscode/
 
-### Trash Files/Foldes ###
+### Trash Files and Folders ###
 mvnw
 mvnw.cmd
 .mvn
