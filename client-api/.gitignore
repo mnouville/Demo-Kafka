@@ -33,4 +33,4 @@ build/
 ### Trash Files and Folders ###
 mvnw
 mvnw.cmd
-.mvn
+.mvn/*
