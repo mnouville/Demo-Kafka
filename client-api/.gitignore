@@ -15,6 +15,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.mvn
 *.iws
 *.iml
 *.ipr
@@ -29,8 +30,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### Trash Files and Folders ###
-mvnw
-mvnw.cmd
-.mvn/*
