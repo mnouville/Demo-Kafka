@@ -4,16 +4,20 @@ import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import fr.excilys.clientapi.model.Client;
 
+@Slf4j
 @Repository
+@Transactional
 public class ClientRepositoryImpl implements ClientRepository {
 
-    private static final String QUERY_FIND_ALL = "from Recipe";
+    private static final String QUERY_FIND_ALL = "from Client";
 
     @PersistenceContext
     private final EntityManager entityManager;
@@ -44,7 +48,8 @@ public class ClientRepositoryImpl implements ClientRepository {
      */
     @Override
     public Optional<Long> add(Client client) {
-        if (client.getId() == null) {
+
+        if (client.getId() != null) {
             Session session = entityManager.unwrap(Session.class);
             return Optional.of((long) session.save(client));
         }
