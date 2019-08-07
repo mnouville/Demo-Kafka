@@ -29,3 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Trash Files/Foldes ###
+mvnw
+mvnw.cmd
+.mvn
