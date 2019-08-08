@@ -78,11 +78,11 @@ Vous devez télécharger le fichier kafka_2.12-2.3.0.tgz
 https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz 
 ```
 
-##Installation
+##Installation##
 
 * Desarchiver le fichier dans un dossier (ex : D:\ )
 
-##Utilisation
+##Utilisation##
 
 * Aller dans le dossier D:\kafka_2.12-2.3.0\bin et executez le serveur Kafka
 
