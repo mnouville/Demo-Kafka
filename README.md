@@ -81,6 +81,10 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz
 ### Installation
 
 * Desarchiver le fichier dans un dossier (ex : D:\ )
+* Aller dans le dossier "Config", puis dans le fichier [server.properties]() et ajoutez la ligne suivantes : 
+```
+delete.topic.enable=true
+```
 
 ### Utilisation
 
@@ -97,3 +101,18 @@ Sous Linux :
 ```
  D:\kafka_2.12-2.3.0\bin> ./kafka-server-start.sh D:\kafka_2.12-2.3.0\config\server.properties
 ```
+
+* Il faut créer un nouveau TOPIC via la commande suivante :
+
+Sous windows : 
+
+```
+D:\kafka_2.12-2.3.0\bin\windows> .\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 100 --topic operationsCompte
+```
+
+Sous Linux : 
+
+```
+D:\kafka_2.12-2.3.0\bin\windows> .\kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 100 --topic operationsCompte
+```
+
