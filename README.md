@@ -13,7 +13,7 @@ Apache Kafka étant vulgairement un bus de données, nous allons l'utiliser afin
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Apache_ZooKeeper_Logo.svg/1200px-Apache_ZooKeeper_Logo.svg.png" />
 
 
-###Téléchargement
+### Téléchargement
 
 Vous devez télécharger le fichier apache-zookeeper-3.5.5-bin.tar.gz
 
@@ -21,7 +21,7 @@ Vous devez télécharger le fichier apache-zookeeper-3.5.5-bin.tar.gz
 https://www.apache.org/dyn/closer.cgi/zookeeper/
 ```
 
-###Installation
+### Installation
 
 * Vous devez au préalable avoir votre JDK de Java présent dans une variable d'environnement système nommée "JAVA_HOME". C'est important vous pourriez avoir des problèmes par la suite.
 * Desarchiver le fichier dans un dossier (ex : D:\ )
@@ -51,7 +51,7 @@ D:\usr\zookeeper\data
  server.1=localhost:2888:3888
  ```
 
-###Utilisation
+### Utilisation
 
 Retourner dans l'autre dossier D:\apache-zookeeper-3.5.5 puis aller dans le dossier "\bin" et executer le serveur Zookeeper
 
@@ -70,7 +70,7 @@ Et voilà le ZooKeeper est installé et lancé prêt pour utilisation. Un dossie
 
 <img src="https://blog.zenika.com/wp-content/uploads/2017/09/kafka-logo-title.png" />
 
-###Téléchargement
+### Téléchargement
 
 Vous devez télécharger le fichier kafka_2.12-2.3.0.tgz
 
@@ -78,11 +78,11 @@ Vous devez télécharger le fichier kafka_2.12-2.3.0.tgz
 https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz 
 ```
 
-###Installation
+### Installation
 
 * Desarchiver le fichier dans un dossier (ex : D:\ )
 
-###Utilisation
+### Utilisation
 
 * Aller dans le dossier D:\kafka_2.12-2.3.0\bin et executez le serveur Kafka
 
