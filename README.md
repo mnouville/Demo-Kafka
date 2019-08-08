@@ -10,6 +10,9 @@ Apache Kafka étant vulgairement un bus de données, nous allons l'utiliser afin
 
 # Apache ZooKeeper
 
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Apache_ZooKeeper_Logo.svg/1200px-Apache_ZooKeeper_Logo.svg.png" />
+
+
 ###Téléchargement
 
 Vous devez télécharger le fichier apache-zookeeper-3.5.5-bin.tar.gz
@@ -65,7 +68,9 @@ Et voilà le ZooKeeper est installé et lancé prêt pour utilisation. Un dossie
 
 # Apache Kafka
 
-##Téléchargement
+<img src="https://blog.zenika.com/wp-content/uploads/2017/09/kafka-logo-title.png" />
+
+###Téléchargement
 
 Vous devez télécharger le fichier kafka_2.12-2.3.0.tgz
 
