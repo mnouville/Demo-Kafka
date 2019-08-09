@@ -30,18 +30,22 @@ public class ClientConsumer {
      */
     @KafkaListener(topics = "operationsCompte", groupId = "group_id")
     public void consume(String message) throws IOException {
-        MessageClientKafka messageKafka = objectMapper.readValue(message, MessageClientKafka.class);
-
-        switch (messageKafka.getFunction()) {
-            case "credit":
-                compteService.credit(messageKafka.getIdClient(), messageKafka.getContent());
-                break;
-            case "debit":
-                compteService.debit(messageKafka.getIdClient(), messageKafka.getContent());
-                break;
-            default:
-                log.info(String.format("Consumed Message -> ", message));
-                break;
+        log.info(String.format("Consumed Message -> ", message));
+        try {
+            MessageClientKafka messageKafka = objectMapper.readValue(message, MessageClientKafka.class);
+            switch (messageKafka.getFunction()) {
+                case "credit":
+                    compteService.credit(messageKafka.getIdClient(), messageKafka.getContent());
+                    break;
+                case "debit":
+                    compteService.debit(messageKafka.getIdClient(), messageKafka.getContent());
+                    break;
+                default:
+                    log.info(String.format("Unknown function"));
+                    break;
+            }
+        } catch (IOException exception) {
+            log.error("Not a JSON MessageClientKafka object");
         }
     }
 
