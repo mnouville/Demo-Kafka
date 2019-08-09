@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="672a1728-44ad-401f-8667-f5127e46603e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/configuration/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/kafka/consumer/CompteConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/kafka/producer/ClientProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-api/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compte-api/src/main/java/fr/excilys/compteapi/configuration/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compte-api/src/main/java/fr/excilys/compteapi/kafka/consumer/ClientConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compte-api/src/main/java/fr/excilys/compteapi/kafka/producer/CompteProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compte-api/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/configuration/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/configuration/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-api/src/main/java/fr/excilys/clientapi/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compte-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/compte-api/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +62,7 @@
       <updated>1565213718767</updated>
       <workItem from="1565213720477" duration="1060000" />
       <workItem from="1565220129770" duration="5543000" />
-      <workItem from="1565276044071" duration="518000" />
+      <workItem from="1565276044071" duration="1746000" />
     </task>
     <servers />
   </component>

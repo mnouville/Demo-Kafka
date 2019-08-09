@@ -1,16 +1,14 @@
 package fr.excilys.clientapi.repository;
 
-import java.util.Optional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
+import fr.excilys.clientapi.model.Client;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
-import fr.excilys.clientapi.model.Client;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -31,7 +29,7 @@ public class ClientRepositoryImpl implements ClientRepository {
      *
      * @param idClient Long
      * @return Soit un Objet de type Client
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     @Override
     public Optional<Client> getById(Long idClient) {
@@ -44,7 +42,7 @@ public class ClientRepositoryImpl implements ClientRepository {
      *
      * @param client Objet de type Client
      * @return Soit un Long
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     @Override
     public Optional<Long> add(Client client) {

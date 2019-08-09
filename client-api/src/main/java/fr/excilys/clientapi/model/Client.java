@@ -1,11 +1,10 @@
 package fr.excilys.clientapi.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -18,7 +17,7 @@ public class Client {
     private String phoneNumber;
 
     @Id
-    @Column(name="id", unique=true, nullable=false)
+    @Column(name = "id", unique = true, nullable = false)
     public Long getId() {
         return id;
     }
@@ -27,7 +26,7 @@ public class Client {
         this.id = id;
     }
 
-    @Column(name="nom")
+    @Column(name = "nom")
     public String getNom() {
         return nom;
     }
@@ -36,7 +35,7 @@ public class Client {
         this.nom = nom;
     }
 
-    @Column(name="prenom")
+    @Column(name = "prenom")
     public String getPrenom() {
         return prenom;
     }
@@ -45,7 +44,7 @@ public class Client {
         this.prenom = prenom;
     }
 
-    @Column(name="email")
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -54,7 +53,7 @@ public class Client {
         this.email = email;
     }
 
-    @Column(name="telephone")
+    @Column(name = "telephone")
     public String getPhoneNumber() {
         return phoneNumber;
     }

@@ -3,11 +3,13 @@ package fr.excilys.compteapi.repository;
 import fr.excilys.compteapi.model.Compte;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class CompteRepositoryImpl implements CompteRepository {
 
     private static final String QUERY_FIND_ALL = "from Compte";
+    private static final String QUERY_FIND_BY_ID_CLIENT = "from Compte where idClient = :idClient";
 
     @PersistenceContext
     private final EntityManager entityManager;
@@ -86,8 +89,63 @@ public class CompteRepositoryImpl implements CompteRepository {
      */
     @Override
     public void update(Compte compte) {
+        log.info("Update : " + compte.toString());
         Session session = entityManager.unwrap(Session.class);
         session.get(Compte.class, compte.getId());
         session.merge(compte);
+    }
+
+    /**
+     * Retourne un objet de type Compte correspondant à son propriétaire.
+     *
+     * @param idClient Long
+     * @return Soit un objet de type Compte
+     * Soit ne retourne rien
+     */
+    @Override
+    public Optional<Compte> getByIdClient(Long idClient) {
+        Session session = entityManager.unwrap(Session.class);
+        Query<Compte> query = session.createQuery(QUERY_FIND_BY_ID_CLIENT);
+        query.setParameter("idClient", idClient);
+        List<Compte> result = (List<Compte>) query.list();
+        return Optional.of(result.get(0));
+    }
+
+    /**
+     * Permet de crediter un compte d'un certain montant.
+     *
+     * @param value    Double
+     * @param idClient Long
+     */
+    @Override
+    public void credit(Long idClient, Double value) {
+        log.info("methode credit");
+        Optional<Compte> compteClient = getByIdClient(idClient);
+
+        if (compteClient.isPresent()) {
+
+            Double solde = compteClient.get().getSolde();
+            compteClient.get().setSolde(solde + value);
+            log.info("Methode credit : " + compteClient.get().toString());
+
+            update(compteClient.get());
+        }
+    }
+
+    /**
+     * Permet de debiter un compte d'un certain montant.
+     *
+     * @param value    Double
+     * @param idClient Long
+     */
+    @Override
+    public void debit(Long idClient, Double value) {
+        Optional<Compte> compteClient = getByIdClient(idClient);
+
+        if (compteClient.isPresent()) {
+            Double solde = compteClient.get().getSolde();
+            compteClient.get().setSolde(solde - value);
+            update(compteClient.get());
+        }
     }
 }

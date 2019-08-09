@@ -1,11 +1,10 @@
 package fr.excilys.clientapi.service;
 
-import java.util.Optional;
-
 import fr.excilys.clientapi.model.Client;
 import fr.excilys.clientapi.repository.ClientRepository;
-
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -21,7 +20,7 @@ public class ClientService {
      *
      * @param idClient Long
      * @return Soit un Objet de type Client
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     public Optional<Client> getById(Long idClient) {
         return this.clientRepository.getById(idClient);
@@ -32,7 +31,7 @@ public class ClientService {
      *
      * @param client Objet de type Client
      * @return Soit un Long
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     public Optional<Long> add(Client client) {
         return this.clientRepository.add(client);

@@ -1,8 +1,8 @@
 package fr.excilys.clientapi.repository;
 
-import java.util.Optional;
-
 import fr.excilys.clientapi.model.Client;
+
+import java.util.Optional;
 
 public interface ClientRepository {
 
@@ -11,7 +11,7 @@ public interface ClientRepository {
      *
      * @param idClient Long
      * @return Soit un Objet de type Client
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     Optional<Client> getById(Long idClient);
 
@@ -20,7 +20,7 @@ public interface ClientRepository {
      *
      * @param client Objet de type Client
      * @return Soit un Long
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     Optional<Long> add(Client client);
 

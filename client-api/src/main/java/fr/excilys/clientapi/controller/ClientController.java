@@ -1,22 +1,17 @@
 package fr.excilys.clientapi.controller;
 
-import java.util.Optional;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.excilys.clientapi.exceptions.ElementNotFoundException;
+import fr.excilys.clientapi.kafka.producer.ClientProducer;
+import fr.excilys.clientapi.model.Client;
+import fr.excilys.clientapi.model.MessageClientKafka;
+import fr.excilys.clientapi.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import fr.excilys.clientapi.exceptions.ElementNotFoundException;
-import fr.excilys.clientapi.model.Client;
-import fr.excilys.clientapi.service.ClientService;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clients/")
@@ -25,8 +20,32 @@ public class ClientController {
 
     private ClientService clientService;
 
-    public ClientController(ClientService clientService) {
+    private ClientProducer clientProducer;
+
+    private ObjectMapper objectMapper;
+
+    public ClientController(ClientService clientService, ClientProducer clientProducer) {
         this.clientService = clientService;
+        this.clientProducer = clientProducer;
+        this.objectMapper = new ObjectMapper();
+    }
+
+    @PostMapping(value = "/test")
+    public void test() {
+        this.clientProducer.sendMessage("Coucou c'est le message test du client producer");
+    }
+
+    /**
+     * Méthode POST permettant de réaliser des opérations bancaires diverses.
+     *
+     * @param messageClientKafka Objet de type MessageClientKafka
+     * @return Objet de type ResponseEntity
+     * @throws JsonProcessingException
+     */
+    @PostMapping(value = "/operationBancaire")
+    public ResponseEntity<String> operationBancaire(@RequestBody MessageClientKafka messageClientKafka) throws JsonProcessingException {
+        this.clientProducer.sendMessage(objectMapper.writeValueAsString(messageClientKafka));
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     /**

@@ -11,7 +11,7 @@ public interface CompteRepository {
      *
      * @param idCompte Long
      * @return Soit un Objet de type Compte
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     public Optional<Compte> getById(Long idCompte);
 
@@ -20,7 +20,7 @@ public interface CompteRepository {
      *
      * @param compte Objet de type compte
      * @return Soit un Long
-     *         Soit ne retourne rien
+     * Soit ne retourne rien
      */
     public Optional<Long> add(Compte compte);
 
@@ -45,4 +45,28 @@ public interface CompteRepository {
      */
     public void update(Compte compte);
 
+    /**
+     * Retourne un objet de type Compte correspondant à son propriétaire.
+     *
+     * @param idClient Long
+     * @return Soit un objet de type Compte
+     * Soit ne retourne rien
+     */
+    public Optional<Compte> getByIdClient(Long idClient);
+
+    /**
+     * Permet de crediter un compte d'un certain montant.
+     *
+     * @param value    Double
+     * @param idClient Long
+     */
+    public void credit(Long idClient, Double value);
+
+    /**
+     * Permet de debiter un compte d'un certain montant.
+     *
+     * @param value    Double
+     * @param idClient Long
+     */
+    public void debit(Long idClient, Double value);
 }
