@@ -40,15 +40,6 @@ public class CompteService {
     }
 
     /**
-     * Supprime un Compte.
-     *
-     * @param compte Objet de type Compte
-     */
-    public void delete(Compte compte) {
-        this.compteRepository.delete(compte);
-    }
-
-    /**
      * Supprime un Compte en fonction de son ID.
      *
      * @param id Long

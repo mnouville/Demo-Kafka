@@ -25,13 +25,6 @@ public interface CompteRepository {
     public Optional<Long> add(Compte compte);
 
     /**
-     * Supprime un Compte.
-     *
-     * @param c Objet de type Compte
-     */
-    public void delete(Compte c);
-
-    /**
      * Supprime un Compte en fonction de son ID.
      *
      * @param idCompte Long

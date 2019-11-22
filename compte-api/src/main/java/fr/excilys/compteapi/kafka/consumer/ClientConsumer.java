@@ -30,7 +30,7 @@ public class ClientConsumer {
      */
     @KafkaListener(topics = "operationsCompte", groupId = "group_id")
     public void consume(String message) throws IOException {
-        log.info(String.format("Consumed Message -> ", message));
+        log.info("Consumed Message -> " + message);
         try {
             MessageClientKafka messageKafka = objectMapper.readValue(message, MessageClientKafka.class);
             switch (messageKafka.getFunction()) {

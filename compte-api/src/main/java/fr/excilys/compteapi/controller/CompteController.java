@@ -55,18 +55,6 @@ public class CompteController {
     }
 
     /**
-     * Méthode DELETE pour supprimer un compte.
-     *
-     * @param compte Objet de type Compte
-     * @return Objet de type ResponseEntity
-     */
-    @DeleteMapping(value = "/")
-    public ResponseEntity<Void> delete(@RequestBody Compte compte) {
-        this.compteService.delete(compte);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    /**
      * Méthode DELETE pour supprimer un compte en fonction de son ID.
      *
      * @param id Long

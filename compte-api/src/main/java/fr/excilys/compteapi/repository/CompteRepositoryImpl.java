@@ -59,18 +59,6 @@ public class CompteRepositoryImpl implements CompteRepository {
     }
 
     /**
-     * Supprime un Compte.
-     *
-     * @param c Objet de type Compte
-     */
-    @Override
-    public void delete(Compte c) {
-        Session session = entityManager.unwrap(Session.class);
-        Compte compte = session.get(Compte.class, c.getId());
-        session.remove(compte);
-    }
-
-    /**
      * Supprime un Compte en fonction de son ID.
      *
      * @param idCompte Long
