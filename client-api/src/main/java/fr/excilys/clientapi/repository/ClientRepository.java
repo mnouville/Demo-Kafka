@@ -25,13 +25,6 @@ public interface ClientRepository {
     Optional<Long> add(Client client);
 
     /**
-     * Supprime un Client.
-     *
-     * @param client Objet de type Client
-     */
-    void delete(Client client);
-
-    /**
      * Supprime un Client en fonction de son ID.
      *
      * @param idClient Long

@@ -2,7 +2,7 @@ package fr.excilys.clientapi.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.excilys.clientapi.exceptions.ElementNotFoundException;
+import fr.excilys.clientapi.exceptions.NoElementException;
 import fr.excilys.clientapi.kafka.producer.ClientProducer;
 import fr.excilys.clientapi.model.Client;
 import fr.excilys.clientapi.model.MessageClientKafka;
@@ -55,14 +55,14 @@ public class ClientController {
      * @return Objet de type ResponseEntity
      */
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Client> getById(@PathVariable Long id) {
+    public ResponseEntity<?> getById(@PathVariable Long id) {
         Optional<Client> client = this.clientService.getById(id);
 
         if (client.isPresent()) {
             return ResponseEntity.ok(client.get());
+        } else {
+            throw new NoElementException();
         }
-
-        throw new ElementNotFoundException();
     }
 
     /**
@@ -77,21 +77,9 @@ public class ClientController {
 
         if (clientId.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(clientId.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
         }
-
-        return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
-    }
-
-    /**
-     * Méthode DELETE pour supprimer un client.
-     *
-     * @param client Objet de type Client
-     * @return Objet de type ResponseEntity
-     */
-    @DeleteMapping(value = "/")
-    public ResponseEntity<Void> delete(@RequestBody Client client) {
-        this.clientService.delete(client);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     /**

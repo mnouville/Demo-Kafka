@@ -56,18 +56,6 @@ public class ClientRepositoryImpl implements ClientRepository {
     }
 
     /**
-     * Supprime un Client.
-     *
-     * @param c Objet de type Client
-     */
-    @Override
-    public void delete(Client c) {
-        Session session = entityManager.unwrap(Session.class);
-        Client client = session.get(Client.class, c.getId());
-        session.remove(client);
-    }
-
-    /**
      * Supprime un Client en fonction de son ID.
      *
      * @param idClient Long

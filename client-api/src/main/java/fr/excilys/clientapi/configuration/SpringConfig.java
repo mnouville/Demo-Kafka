@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan({"fr.excilys.clientapi.controller", "fr.excilys.clientapi.model", "fr.excilys.clientapi.repository", "fr.excilys.clientapi.service"})
-@PropertySource(value = {"classpath:application.properties"})
+@PropertySource(value = {"classpath:application.yml"})
 @EnableTransactionManagement
 public class SpringConfig {
 

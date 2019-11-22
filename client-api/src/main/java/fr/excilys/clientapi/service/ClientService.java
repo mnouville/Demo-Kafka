@@ -38,15 +38,6 @@ public class ClientService {
     }
 
     /**
-     * Supprime un Client.
-     *
-     * @param client Objet de type Client
-     */
-    public void delete(Client client) {
-        this.clientRepository.delete(client);
-    }
-
-    /**
      * Supprime un Client en fonction de son ID.
      *
      * @param id Long
