@@ -143,7 +143,7 @@ Les étapes :
 * Créer un consumer dans un package "Kafka/Consumer" de votre API Compte. Ce consumer devra écouter sur le topic où le producer de votre API Client envoi des messages et afficher le message dans la console.
 * Lorsque vous arrivez a faire communiquer vos API, Mettez en place un modèle de données pour la communication de vos API (ex: [MessageKafka.java]()).
 * Via un ObjectMapper envoyez en récupérez ce type d'objet dans vos producer et consumer afin de faire communiquer vos API sur un même model.
-* Faites vous plaisirs et faites vous plaisirs et réalisez des opérations banquaires diverses (ex: des opérations de débit ou de crédit envoyés depuis l'API Client) entre les deux API. Vous pouvez le faire via un Swagger, en ligne de commande, ou via un FRONT pour les plus motivés !
+* Faites vous plaisirs et réalisez des opérations banquaires diverses (ex: des opérations de débit ou de crédit envoyés depuis l'API Client) entre les deux API. Vous pouvez le faire via un Swagger, en ligne de commande, ou via un FRONT pour les plus motivés !
 
 
 # En cas de problèmes
