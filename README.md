@@ -129,6 +129,23 @@ Sous Linux :
 D:\kafka_2.12-2.3.0\bin\windows> .\kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 100 --topic operationsCompte
 ```
 
+### Travail à faire
+
+Maintenant que votre environnement est installé, vous pouvez commencer à coder. Dans ce git se trouve un exemple d'implémentation (Producer, Consummer, Config etc.)
+Si vous êtes bloqués n'hésitez pas à regarder le code. 
+
+Les étapes : 
+
+* Utiliser le script bdd.sql pour mettre en place la structure de la base de données
+* Créer deux API REST BASIQUES Compte et Client permettant de créer, récupérer, supprimer des comptes/clients etc.
+* Stocker les propriétés du serveur dans votre [application.yml]() et les utiliser dans une classe de Configuration Kafka nommée [KafkaConfig.java](). Cette classe de configuration doit fournir des configurations de producers, un Producer Factory et un Kafka Template. Si cette étape vous parait trop compliqué allez regarder mon fichier [application.yml]() et une des deux [KafkaConfig.java]() de mon repo. 
+* Créer un producer dans un package "Kafka/Producer" de votre API Client. Ce producer devra réaliser des envois de messages sur le topic "operationsComptes" que nous avons créé précédemment. 
+* Créer un consumer dans un package "Kafka/Consumer" de votre API Compte. Ce consumer devra écouter sur le topic où le producer de votre API Client envoi des messages et afficher le message dans la console.
+* Lorsque vous arrivez a faire communiquer vos API, Mettez en place un modèle de données pour la communication de vos API (ex: [MessageKafka.java]()).
+* Via un ObjectMapper envoyez en récupérez ce type d'objet dans vos producer et consumer afin de faire communiquer vos API sur un même model.
+* Faites vous plaisirs et faites vous plaisirs et réalisez des opérations banquaires diverses (ex: des opérations de débit ou de crédit envoyés depuis l'API Client) entre les deux API. Vous pouvez le faire via un Swagger, en ligne de commande, ou via un FRONT pour les plus motivés !
+
+
 # En cas de problèmes
 
 ### Problèmes de Timeout
