@@ -151,7 +151,7 @@ delete.topic.enable=true
 ```
 
 C'est important de le faire avant l'installation car si vous ajoutez cette ligne en cours de route il est très compliqué pour Kafka d'accepter la suppression de TOPIC. 
-Je parle en connaissance de cause. Mais vu que vous êtes des gens biens et que vous avez suivi le tutoriel avec attention ça ne devrait pas arriver :grin: ;)
+Je parle en connaissance de cause. Mais vu que vous êtes des gens biens et que vous avez suivi le tutoriel avec attention ça ne devrait pas arriver :grin: 
 
 ### Autres problèmes ou questions
 
