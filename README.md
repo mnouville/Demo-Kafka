@@ -1,6 +1,6 @@
 # Demo-Kafka
 
-Ce repository à été créé pour la présentation d'Apache Kafka lors de la TechNight d'Excilys du 26 septembre 2019.
+Ce repository à été créé pour la présentation d'Apache Kafka lors de la TechNight d'Excilys du 28 novembre 2019.
 
 Ce dernier contient deux API REST nommées respectivement CLIENT et COMPTE. 
 
@@ -32,8 +32,8 @@ https://www.apache.org/dyn/closer.cgi/zookeeper/
 
 ### Installation
 
-* Vous devez au préalable avoir votre JDK de Java présent dans une variable d'environnement système nommée "JAVA_HOME". [C'est important vous pourriez avoir des problèmes par la suite].
-* Desarchiver le fichier dans un dossier (ex : D:\ )
+* Vous devez au préalable avoir votre JDK de Java présent dans une variable d'environnement système nommée "JAVA_HOME". [C'est important vous pourriez avoir des problèmes par la suite]().
+* Desarchiver le fichier dans un dossier (Pour l'exemple nous utiliserons le dossier D:\ pour l'installation )
 * Créer une nouvelle variable d'environnement système ZOOKEEPER_HOME pointant sur votre nouveau dossier
 
 
@@ -41,7 +41,7 @@ https://www.apache.org/dyn/closer.cgi/zookeeper/
 ZOOKEEPER_HOME          D:\apache-zookeeper-3.5.5
 ```
 * Ajouter la nouvelle variable ZOOKEEPER_HOME à votre variable d'environnement Path
-* Créer un dossier usr/zookeeper/data en dehors du dossier actuel. Exemple : 
+* Créer un dossier usr/zookeeper/data en dehors du dossier actuel. Ce dossier sera utilisé pour stocker les logs de Zookeeper et de Kafka. Exemple : 
 ```
 D:\usr\zookeeper\data
 ```
@@ -73,7 +73,7 @@ Sous Linux :
  D:\apache-zookeeper-3.5.5\bin> ./zkServer.sh
  ```
 
-Et voilà le ZooKeeper est installé et lancé prêt pour utilisation. Un dossier version va automatiquement être créé dans le dossier "D:\usr\zookeeper\data"
+Et voilà le ZooKeeper est installé et lancé prêt pour utilisation. Un dossier "D:\usr\zookeeper" va être crée avec des logs et un dossier de version.
 
 # Apache Kafka
 
@@ -142,9 +142,24 @@ Souvent ce problème vient avec le précédent. De manières générale lorsque 
 Pour les supprimer c'est simple ! Si l'on prend notre exemple, nos logs sont stockés dans le dossier : D:\usr\zookeeper et D:\usr\kafka
 Il faut donc arrêter votre Zookeeper et votre Kafka et ensuite supprimer ces deux dossiers. Pas de panique, il seront à nouveau générés par votre Zookeeper et votre Kafka lors du prochain démarrage.
 
+### Supprimer un TOPIC
+
+Plus haut dans le tutoriel je vous ai précisé d'ajouter la ligne : 
+
+```
+delete.topic.enable=true
+```
+
+C'est important de le faire avant l'installation car si vous ajoutez cette ligne en cours de route il est très compliqué pour Kafka d'accepter la suppression de TOPIC. 
+Je parle en connaissance de cause. Mais vu que vous êtes des gens biens et que vous avez suivi le tutoriel avec attention ça ne devrait pas arriver :grin: ;)
+
 ### Autres problèmes ou questions
 
 Je vous ai mis juste au dessus les deux problèmes majeurs que j'ai rencontré lors de la mise en place de cette architecture. J'imagine que vous en trouverez d'autres auxquels je n'ai pas répondu. 
 Dans ce cas n'hésitez pas à m'envoyer un mail : mnouville@excilys.com
 
-J'essayerais de vous répondre le plus vite dans la mesure du possible et de vous aider. 
+J'essayerais de vous répondre le plus vite dans la mesure du possible et de vous aider.
+
+De même si vous pensez que j'ai fais une erreur, que j'ai oublié de préciser quelque chose n'hésitez pas à me le signaler pour que je corrige !
+
+Merci d'avance !  
