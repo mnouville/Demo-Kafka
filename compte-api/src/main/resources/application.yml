@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/demo-kafka?useSSL=false&serverTimezone=UTC
-    username: root
-    password: toor
+    username: kafka
+    password: kafka
     testWhileIdle: true
     validationQuery: SELECT 1
   jpa:

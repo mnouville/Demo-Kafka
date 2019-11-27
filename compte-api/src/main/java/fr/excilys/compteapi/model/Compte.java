@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name="COMPTE")
 public class Compte {
 
     private Long id;
