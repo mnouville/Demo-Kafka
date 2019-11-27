@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
-@Transactional
 public class ClientRepositoryImpl implements ClientRepository {
 
     private static final String QUERY_FIND_ALL = "from Client";

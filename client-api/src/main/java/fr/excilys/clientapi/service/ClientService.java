@@ -4,9 +4,11 @@ import fr.excilys.clientapi.model.Client;
 import fr.excilys.clientapi.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ClientService {
 
     private ClientRepository clientRepository;
