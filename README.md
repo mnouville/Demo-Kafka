@@ -7,6 +7,8 @@ Ce dernier contient deux API REST nommées respectivement CLIENT et COMPTE.
 Dans cette démo nous simulons très basiquement le fonctionnement d'une banque avec des clients reliés à des comptes. 
 Chaque client va réaliser différentes opérations banquaires qui seront assurées par l'API COMPTE. 
 
+L'objectif de ce TP est de faire une initiation à la communication via Kafka. Ici nous verrons pas de Kafka Connect. Je vous laisse creuser de votre côté si la technologie vous intéresse. 
+
 Apache Kafka étant vulgairement un bus de données, nous allons l'utiliser afin de faire communiquer ces deux API de manière asynchrone. 
 
 En cas de problèmes lors de l'installation j'ai mis a disposition des solutions à des problèmes récurrent. Avant de perdre du temps à chercher sur internet n'hésitez pas à les regarder.
@@ -148,6 +150,14 @@ Les étapes :
 
 # En cas de problèmes
 
+### Problèmes lors de l'installation de Zookeeper
+
+Ces problèmes sont beaucoup plus réccurents sur Linux (surtout si vous n'êtes pas spécialement à l'aise sur cet OS). En général les problèmes d'installation viennent de deux choses : 
+* Soit vous avez fait des bétises dans vos variables d'environnement. N'oubliez pas qu'il est IMPERATIF d'avoir une variable d'environnement JAVA_HOME et ZOOKEEPER_HOME. Ces dernières doivent bien évidemment apparaitre dans votre variable PATH. 
+* Soit c'est lié à votre version de JAVA. Pour une raison que j'ignore, sur Linux, Zookeeper à l'aire de vouloir une version de l'openjdk dans le JAVA_HOME. Par exemple l'openjdk 8. Ce n'est pas un problème que j'ai rencontré sur Windows mais il faut tout de même rester vigilant.
+
+Pour tout autre problèmes, vous avez accès aux messages d'erreurs dans un fichier texte du dossier "Logs". 
+
 ### Problèmes de Timeout
 
 Kafka conserve un historique de l'ensemble des messages envoyés sur tous les topics. Tout cet historique est chargé au démarrage de Kafka. Selon la taille de votre architecture ou son ancienneté il est possible que ce chargement prenne trop de temps et fasse un "Time out". 
@@ -158,6 +168,8 @@ Par défaut la valeur de Time Out est set à 6000 ms dans les properties de votr
 Souvent ce problème vient avec le précédent. De manières générale lorsque vous apportez des changements concernant les propriétés de votre Kafka il est important de clean les logs car ces derniers sont utilsés au démarrage de Kafka.
 Pour les supprimer c'est simple ! Si l'on prend notre exemple, nos logs sont stockés dans le dossier : D:\usr\zookeeper et D:\usr\kafka
 Il faut donc arrêter votre Zookeeper et votre Kafka et ensuite supprimer ces deux dossiers. Pas de panique, il seront à nouveau générés par votre Zookeeper et votre Kafka lors du prochain démarrage.
+Attention, les Logs au sens Kafka n'a rien à voir avec les Log que l'on connait en informatique. Allez voir dans ma présentation pour avoir des informations sur les Logs Kafka.
+Par conséquent supprimer les Logs est potentiellement une bonne solutions pour vous aider a debugger votre environnement mais ce n'est pas du tout une bonne pratique en cas de situation réelle. 
 
 ### Supprimer un TOPIC
 
